@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Grievance Agent · Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <div class="brand"><h1>Grievance <span>Agent</span></h1><p>Admin · AI guardrails and settings</p></div>
+</div></header>
+<main class="wrap page">
+  <form class="pane login" id="loginForm">
+    <h2>Admin sign in</h2>
+    <div class="fld"><label for="adminPass">Admin password</label><input id="adminPass" type="password" autocomplete="current-password" required></div>
+    <div class="err" id="loginErr" hidden></div>
+    <button class="btn" type="submit">Sign in</button>
+  </form>
+  <form class="pane admin" id="cfgForm" hidden>
+    <div><div class="eyebrow">Model: <span id="model" class="mono"></span></div><h2 style="font-family:var(--f-display);margin:4px 0 0">System prompt</h2></div>
+    <div class="fld">
+      <label for="systemPrompt">Instructions and guardrails for the AI</label>
+      <span class="hint">Changes apply to the next chat message. The JSON output format the app needs is added automatically, so you don't need to include it.</span>
+      <textarea id="systemPrompt" spellcheck="false"></textarea>
+      <span class="count" id="promptCount"></span>
+    </div>
+    <div class="row2">
+      <div class="fld"><label for="emergencyContact">Emergency or designated workplace contact</label><span class="hint">Shown to employees whenever a safety concern comes up.</span><input id="emergencyContact" type="text" maxlength="300"></div>
+      <div class="fld"><label for="policyUrl">Grievance Policy link <span class="hint">(optional)</span></label><span class="hint">SharePoint or Google Drive URL to the full policy.</span><input id="policyUrl" type="url" maxlength="500" placeholder="https://"></div>
+    </div>
+    <div class="err" id="cfgErr" hidden></div><div class="okmsg" id="cfgOk" hidden></div>
+    <div class="form-actions"><button class="btn" type="submit">Save settings</button><button class="btn sec" type="button" id="reset">Reset prompt to default</button></div>
+  </form>
+</main>
+<script src="/admin.js"></script>
+</body>
+</html>

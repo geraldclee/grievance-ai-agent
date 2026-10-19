@@ -1,0 +1,26 @@
+{
+  // Standalone grievance agent. Independent from concierge-hr-agent: own Worker, own KV, own secrets.
+  "name": "grievance-ai-agent",
+  "main": "src/index.js",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  // Cloudflare Workers AI: free daily allowance, no API key needed
+  "ai": { "binding": "AI" },
+  "kv_namespaces": [
+    {
+      "binding": "GRIEVANCE_KV",
+      // Replace with the ID of the KV namespace you create (see README, step 2)
+      "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+    }
+  ],
+  "vars": {
+    "AI_MODEL": "@cf/openai/gpt-oss-120b",
+    "AI_BACKUP_MODEL": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "TZ_OFFSET_HOURS": "8",
+    "COMPANY_NAME": "Evooq"
+  },
+  "observability": { "enabled": true }
+}
