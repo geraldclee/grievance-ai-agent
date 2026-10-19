@@ -13,7 +13,7 @@
     {
       "binding": "GRIEVANCE_KV",
       // Replace with the ID of the KV namespace you create (see README, step 2)
-      "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+      "id": "51232afd0de84ac1b08acbf0fe8966ba"
     }
   ],
   "vars": {
